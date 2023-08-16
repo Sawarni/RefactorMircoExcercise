@@ -71,7 +71,10 @@
     <Compile Include="TelemetrySystem\Utils\TelemetryConstants.cs" />
     <Compile Include="TelemetrySystem\TelemetryDiagnosticControls.cs" />
     <Compile Include="TelemetrySystem\TelimetryConnection.cs" />
+    <Compile Include="TirePressureMonitoringSystem.Tests\AlarmTests.cs" />
     <Compile Include="TirePressureMonitoringSystem\Alarm.cs" />
+    <Compile Include="TirePressureMonitoringSystem\Interface\IAlarm.cs" />
+    <Compile Include="TirePressureMonitoringSystem\Interface\ISensor.cs" />
     <Compile Include="TirePressureMonitoringSystem\Sensor.cs" />
     <Compile Include="TurnTicketDispenser\TicketDispenser.cs" />
     <Compile Include="TurnTicketDispenser\TurnNumberSequence.cs" />
