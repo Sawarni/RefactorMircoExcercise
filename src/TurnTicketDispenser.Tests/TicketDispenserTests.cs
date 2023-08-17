@@ -13,31 +13,42 @@ namespace TDDMicroExercises.TurnTicketDispenser.Tests
             Mock<ITurnNumberSequence> mockTurnNumberSequence = new Mock<ITurnNumberSequence>();
             mockTurnNumberSequence.Setup(x => x.FetchNextNumber()).Returns(6);
             var turnTicketDispenser = new TicketDispenser(mockTurnNumberSequence.Object);
-            var returnValue = turnTicketDispenser.GetTurnTicket();
+            var turnTicket = turnTicketDispenser.GetTurnTicket();
 
-            Assert.AreEqual(6, returnValue.TurnNumber);
+            Assert.AreEqual(6, turnTicket.TurnNumber);
         }
 
         [Test]
-        public void Check_TurnTicket_when_Multiple_dispensers_are_present()
+        public void Check_TurnTicket_have_subsequent_number_when_dispensed_through_multiple_dispensers()
         {
             var turnTicketDispenser1 = new TicketDispenser();
             var turnTicketDispenser2 = new TicketDispenser();
-            var returnValue0 = turnTicketDispenser1.GetTurnTicket();
-            var returnValue1 = turnTicketDispenser1.GetTurnTicket();
-            var returnValue2 = turnTicketDispenser2.GetTurnTicket();
-            var returnValue3 = turnTicketDispenser1.GetTurnTicket();
-            var returnValue4 = turnTicketDispenser2.GetTurnTicket();
-            Assert.AreEqual(returnValue0.TurnNumber + 1, returnValue1.TurnNumber);
-            Assert.AreEqual(returnValue1.TurnNumber + 1, returnValue2.TurnNumber);
-            Assert.AreEqual(returnValue2.TurnNumber + 1, returnValue3.TurnNumber);
-            Assert.AreEqual(returnValue3.TurnNumber + 1, returnValue4.TurnNumber);
+            var firstTicketFromDispenser1 = turnTicketDispenser1.GetTurnTicket();
+            var secondTicketFromDispenser1 = turnTicketDispenser1.GetTurnTicket();
+            var firstTicketFromDispenser2 = turnTicketDispenser2.GetTurnTicket();
+            var thirdTicketFromDispenser1 = turnTicketDispenser1.GetTurnTicket();
+            var secondTicketFromDispenser2 = turnTicketDispenser2.GetTurnTicket();
+            Assert.AreEqual(firstTicketFromDispenser1.TurnNumber + 1, secondTicketFromDispenser1.TurnNumber);
+            Assert.AreEqual(secondTicketFromDispenser1.TurnNumber + 1, firstTicketFromDispenser2.TurnNumber);
+            Assert.AreEqual(firstTicketFromDispenser2.TurnNumber + 1, thirdTicketFromDispenser1.TurnNumber);
+            Assert.AreEqual(thirdTicketFromDispenser1.TurnNumber + 1, secondTicketFromDispenser2.TurnNumber);
 
             var turnTicketDispenser3 = new TicketDispenser();
-            var returnValue5 = turnTicketDispenser3.GetTurnTicket();
-            Assert.AreEqual(returnValue4.TurnNumber + 1, returnValue5.TurnNumber);
+            var firstTicketFromDispenser3 = turnTicketDispenser3.GetTurnTicket();
+            Assert.AreEqual(secondTicketFromDispenser2.TurnNumber + 1, firstTicketFromDispenser3.TurnNumber);
         }
 
-      
+        [Test]
+        public void Check_TurnTicket_have_subsequent_number_when_dispensed_through_single_dispenser()
+        {
+            var turnTicketDispenser1 = new TicketDispenser();
+            var firstTicket = turnTicketDispenser1.GetTurnTicket();
+            var secondTicket = turnTicketDispenser1.GetTurnTicket();
+
+            Assert.AreEqual(firstTicket.TurnNumber + 1, secondTicket.TurnNumber);
+
+        }
+
+
     }
 }

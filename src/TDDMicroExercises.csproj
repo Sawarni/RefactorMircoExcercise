@@ -80,6 +80,7 @@
     <Compile Include="TirePressureMonitoringSystem\Interface\IAlarm.cs" />
     <Compile Include="TirePressureMonitoringSystem\Interface\ISensor.cs" />
     <Compile Include="TirePressureMonitoringSystem\Sensor.cs" />
+    <Compile Include="TirePressureMonitoringSystem\Utils\ThresholdConstants.cs" />
     <Compile Include="TurnTicketDispenser.Tests\NumberSequenceTest.cs" />
     <Compile Include="TurnTicketDispenser.Tests\TicketDispenserTests.cs" />
     <Compile Include="TurnTicketDispenser.Tests\TurnNumberSequenceTest.cs" />

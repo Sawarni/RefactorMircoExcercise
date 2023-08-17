@@ -13,7 +13,7 @@ namespace TDDMicroExercises.TelemetrySystem
     public class TelemetryConnection : ITelemetryConnection
     {
         private bool _onlineStatus;
-        private readonly Random _connectionEventsSimulator = new Random();
+        
         private readonly IConnectionEvent _connectionEvent;
 
         public bool OnlineStatus

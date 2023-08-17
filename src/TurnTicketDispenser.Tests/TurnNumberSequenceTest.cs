@@ -12,7 +12,7 @@ namespace TDDMicroExercises.TurnTicketDispenser.Tests
     {
 
         [Test]
-        public void Check_TurnNumberSequence_FietchNextNumber_should_always_return_a_running_number_with_one_object()
+        public void Check_TurnNumberSequence_FetchNextNumber_should_always_return_a_running_number_with_one_object()
         {
             TurnNumberSequence sequence1 = new TurnNumberSequence();
             int fetch1 = sequence1.FetchNextNumber();
@@ -22,7 +22,7 @@ namespace TDDMicroExercises.TurnTicketDispenser.Tests
         }
 
         [Test]
-        public void Check_TurnNumberSequence_FietchNextNumber_should_always_return_a_running_number_even_when_there_are_multiple_object()
+        public void Check_TurnNumberSequence_FetchNextNumber_should_always_return_a_running_number_even_when_there_are_multiple_object()
         {
             TurnNumberSequence sequence1 = new TurnNumberSequence();
             TurnNumberSequence sequence2 = new TurnNumberSequence();
@@ -38,11 +38,11 @@ namespace TDDMicroExercises.TurnTicketDispenser.Tests
         public void Check_GetNextTurnNumber_should_also_give_the_next_number()
         {
 
-            int a = TurnNumberSequence.GetNextTurnNumber();
-            int b = TurnNumberSequence.GetNextTurnNumber();
-            Assert.AreEqual(a + 1, b);
-            int c = TurnNumberSequence.GetNextTurnNumber();
-            Assert.AreEqual(b + 1, c);
+            int number1 = TurnNumberSequence.GetNextTurnNumber();
+            int number2 = TurnNumberSequence.GetNextTurnNumber();
+            Assert.AreEqual(number1 + 1, number2);
+            int number3 = TurnNumberSequence.GetNextTurnNumber();
+            Assert.AreEqual(number2 + 1, number3);
 
         }
     }

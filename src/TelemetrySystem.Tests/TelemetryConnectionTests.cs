@@ -62,5 +62,12 @@ namespace TDDMicroExercises.TelemetrySystem.Tests
             var telemetryConnection = new TelemetryConnection();
             Assert.Throws<ArgumentNullException>(() => telemetryConnection.Connect(null));
         }
+
+        [Test]
+        public void Check_connection_should_throw_an_exception_when_empty_connection_string_passed()
+        {
+            var telemetryConnection = new TelemetryConnection();
+            Assert.Throws<ArgumentNullException>(() => telemetryConnection.Connect(String.Empty));
+        }
     }
 }

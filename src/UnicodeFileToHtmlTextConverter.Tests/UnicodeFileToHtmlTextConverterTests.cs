@@ -43,5 +43,22 @@ namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter.Tests
 
             Assert.AreEqual("&lt;script type=&#39;javascript&#39;&gt;<br />&lt;/script&gt;<br />", output);
         }
+
+        [Test]
+        public void Check_HTML_Encoding_when_line_is_blank()
+        {
+            Mock<IReader> mockReader = new Mock<IReader>();
+            string fakeFileContents = string.Empty;
+            byte[] fakeFileBytes = Encoding.UTF8.GetBytes(fakeFileContents);
+            MemoryStream fakeMemoryStream = new MemoryStream(fakeFileBytes);
+
+            mockReader.Setup(x => x.GetTextReader()).Returns(() => new StreamReader(fakeMemoryStream));
+
+            var unicodeFileToHtmlTextConverter = new UnicodeFileToHtmlTextConverter(mockReader.Object);
+
+            var output = unicodeFileToHtmlTextConverter.ConvertToHtml();
+
+            Assert.IsEmpty(output);
+        }
     }
 }

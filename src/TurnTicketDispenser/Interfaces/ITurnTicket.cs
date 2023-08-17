@@ -1,7 +1,7 @@
 ﻿namespace TDDMicroExercises.TurnTicketDispenser.Interfaces
 {
     /// <summary>
-    /// An interface to for turn ticket.
+    /// An interface for turn ticket.
     /// </summary>
     public interface ITurnTicket
     {

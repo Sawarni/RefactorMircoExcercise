@@ -6,12 +6,12 @@ namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter
 {
     public class UnicodeFileToHtmlTextConverter
     {
-        private readonly string _fullFilenameWithPath;
+        
         private readonly IReader _reader;
 
         public UnicodeFileToHtmlTextConverter(string fullFilenameWithPath) : this(new FileReader(fullFilenameWithPath))
         {
-            _fullFilenameWithPath = fullFilenameWithPath;
+            
         }
 
         public UnicodeFileToHtmlTextConverter(IReader reader)
