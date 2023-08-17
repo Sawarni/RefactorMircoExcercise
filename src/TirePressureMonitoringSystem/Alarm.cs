@@ -16,9 +16,12 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
             _sensor = sensor;
         }
 
-        public Alarm()
+        /// <summary>
+        /// Implement a default constructor to avoid breaking of dependent object.
+        /// </summary>
+        public Alarm() : this(new Sensor())
         {
-            _sensor = new Sensor();
+
         }
 
 

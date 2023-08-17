@@ -1,5 +1,8 @@
-﻿namespace TDDMicroExercises.TelemetrySystem.Intefaces
+﻿namespace TDDMicroExercises.TelemetrySystem.Interfaces
 {
+    /// <summary>
+    /// The interface for Telemetry connection
+    /// </summary>
     public interface ITelemetryConnection
     {
         bool OnlineStatus { get; }

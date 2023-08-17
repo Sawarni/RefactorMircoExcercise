@@ -1,6 +1,6 @@
 
 using System;
-using TDDMicroExercises.TelemetrySystem.Intefaces;
+using TDDMicroExercises.TelemetrySystem.Interfaces;
 using TDDMicroExercises.TelemetrySystem.Utils;
 
 namespace TDDMicroExercises.TelemetrySystem
@@ -16,9 +16,13 @@ namespace TDDMicroExercises.TelemetrySystem
         {
             _telemetryClient = telemetryClient;
         }
-        public TelemetryDiagnosticControls()
+
+        /// <summary>
+        /// Implement a constructor so that dependent objects should not break.
+        /// </summary>
+        public TelemetryDiagnosticControls() : this(new TelemetryClient())
         {
-            _telemetryClient = new TelemetryClient();
+            
         }
 
         public string DiagnosticInfo

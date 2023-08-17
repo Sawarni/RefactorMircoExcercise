@@ -1,13 +1,14 @@
 ﻿using NUnit.Framework;
 using Moq;
-using TDDMicroExercises.TelemetrySystem.Intefaces;
+using TDDMicroExercises.TelemetrySystem.Interfaces;
+
 namespace TDDMicroExercises.TelemetrySystem.Tests
 {
     [TestFixture]
     public class TelemetryClientTest
     {
         private Mock<ITelemetryConnection> _telemetryConnection = new Mock<ITelemetryConnection>();
-        private Mock<ITelimetryOperation> _telemetryOperation = new Mock<ITelimetryOperation>();
+        private Mock<ITelemetryOperation> _telemetryOperation = new Mock<ITelemetryOperation>();
 
         [Test]
         public void Check_OnlineStatus_when_connection_returns_true()

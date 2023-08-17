@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TDDMicroExercises.TelemetrySystem.Intefaces;
+using TDDMicroExercises.TelemetrySystem.Interfaces;
 using TDDMicroExercises.TelemetrySystem.Utils;
 
 namespace TDDMicroExercises.TelemetrySystem
 {
     /// <summary>
-    /// Sawarni Manu : In order to implement SRP (Single responsibilty principle)
+    /// This class implements the operations like Send and Receive of Telemetry
     /// </summary>
-    public class TelemertryOperation : ITelimetryOperation // Implement an interface purely responsible for telemtery operation Send and Receive.
+    public class TelemertryOperation : ITelemetryOperation // Implement an interface purely responsible for telemtery operation Send and Receive.
     {
        
         private bool _diagnosticMessageJustSent = false;

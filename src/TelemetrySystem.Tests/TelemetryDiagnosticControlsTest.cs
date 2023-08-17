@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Moq;
-using TDDMicroExercises.TelemetrySystem.Intefaces;
+using System;
+using TDDMicroExercises.TelemetrySystem.Interfaces;
 
 namespace TDDMicroExercises.TelemetrySystem.Tests
 {
@@ -43,15 +44,8 @@ namespace TDDMicroExercises.TelemetrySystem.Tests
             _telemetryClient.Setup(x => x.Receive()).Returns(() => "status message");
 
             var telemetryDiagnosticControl = new TelemetryDiagnosticControls(_telemetryClient.Object);
-            try
-            {
-                telemetryDiagnosticControl.CheckTransmission();
-            }
-            catch (System.Exception ex)
-            {
-                Assert.AreEqual("Unable to connect.", ex.Message);
-            }
 
+            Assert.Throws<Exception>(() => telemetryDiagnosticControl.CheckTransmission());
 
             _telemetryClient.Verify(x => x.Disconnect(), Times.Once); //Call disconnect before making connection
             _telemetryClient.Verify(x => x.Connect(It.IsAny<string>()), Times.Exactly(3)); //Should have tried 3 times

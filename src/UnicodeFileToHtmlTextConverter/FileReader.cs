@@ -4,9 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TDDMicroExercises.UnicodeFileToHtmlTextConverter.Interfaces;
 
 namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter
 {
+    /// <summary>
+    /// A file reader class to implement reading of file.
+    /// </summary>
     public class FileReader : IReader
     {
         private readonly string _filePath;
@@ -18,10 +22,6 @@ namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter
 
         public TextReader GetTextReader()
         {
-            if (!File.Exists(_filePath))
-            {
-                throw new FileNotFoundException($"{_filePath} not found");
-            }
             return File.OpenText(_filePath);
         }
     }

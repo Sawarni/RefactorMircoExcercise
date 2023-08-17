@@ -1,5 +1,6 @@
 using System.IO;
 using System.Web;
+using TDDMicroExercises.UnicodeFileToHtmlTextConverter.Interfaces;
 
 namespace TDDMicroExercises.UnicodeFileToHtmlTextConverter
 {

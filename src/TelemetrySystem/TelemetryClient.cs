@@ -1,14 +1,17 @@
-using System;
-using TDDMicroExercises.TelemetrySystem.Intefaces;
+using TDDMicroExercises.TelemetrySystem.Interfaces;
 
 namespace TDDMicroExercises.TelemetrySystem
 {
+    /// <summary>
+    /// Telemetry client is a facade which internally calls Telemetry Operation and Connection.
+    /// It is necessary to have this class as there are exisitng dependency which cannot be changed.
+    /// </summary>
     public class TelemetryClient : ITelemetryClient
     {
-        private readonly ITelimetryOperation _operation;
+        private readonly ITelemetryOperation _operation;
         private readonly ITelemetryConnection _connection;
 
-        public TelemetryClient(ITelimetryOperation operation, ITelemetryConnection connection)
+        public TelemetryClient(ITelemetryOperation operation, ITelemetryConnection connection)
         {
             _operation = operation;
             _connection = connection;
@@ -17,7 +20,7 @@ namespace TDDMicroExercises.TelemetrySystem
         /// <summary>
         /// Implemented this constructor so that the dependent client does not break.
         /// </summary>
-        public TelemetryClient() : this(new TelemertryOperation(), new TelimetryConnection())
+        public TelemetryClient() : this(new TelemertryOperation(), new TelemetryConnection())
         {
 
         }
