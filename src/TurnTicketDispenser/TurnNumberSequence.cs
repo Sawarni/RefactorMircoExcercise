@@ -1,12 +1,29 @@
+using TDDMicroExercises.TurnTicketDispenser.Interfaces;
+
 namespace TDDMicroExercises.TurnTicketDispenser
 {
-    public static class TurnNumberSequence
+    public class TurnNumberSequence : ITurnNumberSequence
     {
-        private static int _turnNumber = 0;
-
-        public static int GetNextTurnNumber()
+        private INumberSequence NumberSequenceInstance;
+        public TurnNumberSequence()
         {
-            return _turnNumber++;
+            NumberSequenceInstance = NumberSequence.Instance;
+        }
+
+        public TurnNumberSequence(INumberSequence numberSequence)
+        {
+            NumberSequenceInstance = numberSequence;
+        }
+        public static int GetNextTurnNumber() //Need this method as it is used in dependency. Internally it is using FetchNextNumber. 
+        {
+            var obj = new TurnNumberSequence();
+            return obj.FetchNextNumber();
+        }
+
+        public int FetchNextNumber()
+        {
+            return NumberSequenceInstance.GetNextTurnNumber();
         }
     }
+
 }
